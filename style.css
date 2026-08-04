@@ -12,17 +12,6 @@
     --shadow-1-elevation-high: 0px 0.2px 0.2px hsl(var(--shadow-color) / 0.34), 0px 1.3px 1.5px -0.4px hsl(var(--shadow-color) / 0.34), 0.1px 2.4px 2.7px -0.7px hsl(var(--shadow-color) / 0.34), 0.1px 4px 4.5px -1.1px hsl(var(--shadow-color) / 0.34), 0.1px 6.4px 7.2px -1.4px hsl(var(--shadow-color) / 0.34), 0.2px 10px 11.3px -1.8px hsl(var(--shadow-color) / 0.34), 0.3px 15.1px 17px -2.1px hsl(var(--shadow-color) / 0.34), 0.5px 22.3px 25.1px -2.5px hsl(var(--shadow-color) / 0.34);
 }
 
-@font-face {
-    font-family: 'Amalfi-Coast';
-    src: url('assets/fonts/Amalfi-Coast.ttf.woff') format('woff'),
-        url('assets/fonts/Amalfi-Coast.ttf.svg#Amalfi-Coast') format('svg'),
-        url('assets/fonts/Amalfi-Coast.ttf.eot'),
-        url('assets/fonts/Amalfi-Coast.ttf.eot?#iefix') format('embedded-opentype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-
 html {
     scroll-behavior: smooth;
     font-size: 16px;
@@ -53,10 +42,12 @@ section {
 h1,
 h2,
 h3,
-p {
-    font-family: 'Cormorant Garamond', serif;
+p,
+ul,
+li {
+    font-family: 'Josefin Sans', sans-serif;
     color: var(--text);
-    font-weight: 400;
+    font-weight: 300;
 }
 
 h1 a,
@@ -117,11 +108,14 @@ HOME
 ***/
 
 /* Font settings for the main title */
+/* Fluid so the title keeps a constant ~2.2x visual lead over the date at every
+   width. Sacramento's x-height is only 0.80x Josefin's, so it needs a larger
+   font-size than the date just to look equal. */
 .home h1 {
-    font-family: 'Amalfi-Coast';
+    font-family: 'Sacramento', cursive;
     text-align: center;
     line-height: 1.05em;
-    font-size: 5rem;
+    font-size: clamp(4rem, 13vw, 8rem);
     letter-spacing: .5px;
     color: var(--green);
 }
@@ -145,8 +139,10 @@ HOME
 
 /* Sets the wedding date below the h1 */
 .home .date {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
     color: var(--green);
-    font-size: 2.2rem;
+    font-size: clamp(1.1rem, 4.2vw, 2.2rem);
     margin-top: 2rem;
 }
 
@@ -158,20 +154,23 @@ p.bigtext {
     margin: 0px;
 }
 
+/* Short section labels — "Schedule:", "Kids:" */
 p.hugetext {
+    font-family: 'Julius Sans One', sans-serif;
+    letter-spacing: 0.15em;
     font-size: 5rem;
     padding: 0px;
     margin: 0px;
 }
 
 .daje {
-    font-weight: bolder;
-    font-style: italic;
+    font-weight: 600;
 }
 
 p.subtext,
 ul.subtext {
     font-size: 1.5rem;
+    line-height: 1.4;
     margin: 0px;
     color: var(--green);
     text-align: center;
@@ -182,6 +181,11 @@ ul.subtext {
     padding-left: 0;
     color: var(--green);
     text-align: left;
+}
+
+/* Inline photos sitting above a caption */
+img.remark {
+    margin: 2.5rem 0;
 }
 
 a:visited {
@@ -196,8 +200,15 @@ section.alt {
 p.subtext a,
 ul.subtext a {
     color: var(--text);
-    font-weight: bolder;
+    font-weight: 600;
     text-align: left;
+}
+
+/* Josefin's base weight is 300, so `bolder` only resolves to 400 —
+   pin emphasis to 600 so it actually reads as emphasis. */
+b,
+strong {
+    font-weight: 600;
 }
 
 p.subtext a:hover,
@@ -206,7 +217,8 @@ ul.subtext a:hover {
 }
 
 a.button {
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Julius Sans One', sans-serif;
+    letter-spacing: 0.18em;
     font-size: 1.1rem;
     margin-top: 3rem;
     text-decoration: none;
@@ -256,10 +268,10 @@ div.navigation a,
 div.navigation a:any-link,
 div.navigation a:visited {
     color: var(--green);
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Julius Sans One', sans-serif;
+    letter-spacing: 0.18em;
     font-size: 1.4em;
     text-decoration: none;
-    font-weight: 500;
     border-bottom: solid 1px transparent;
     transition: all 1s ease-in-out;
 }
@@ -572,17 +584,7 @@ ANIMATIONS
 /***
 RESPONSIVENESS
 ***/
-@media (max-width: 1200px) {
-    .home h1 {
-        font-size: 4rem;
-    }
-}
-
 @media (max-width: 992px) {
-    .home h1 {
-        font-size: 2.5rem;
-    }
-
     .home .hero .img-top.img-left {
         height: 40vh;
     }
@@ -648,10 +650,6 @@ RESPONSIVENESS
         height: 75vw;
     }
 
-    .home h1 {
-        font-size: 2rem;
-    }
-
     .home .bounce {
         display: none;
     }
@@ -679,10 +677,10 @@ table {
 }
 
 table thead th {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 2.5rem;
     color: var(--green);
-    font-weight: 600;
+    font-weight: 300;
     padding: 1.5rem 1rem;
     text-align: center;
     border-bottom: solid 2px var(--light-green);
@@ -693,6 +691,7 @@ table tbody td {
     vertical-align: top;
     border-bottom: solid 1px var(--beige);
     color: var(--text);
+    line-height: 1.4;
 }
 
 table tbody td:first-child {
