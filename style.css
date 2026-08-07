@@ -1,10 +1,8 @@
 :root {
     --green: #5B7343;
     --light-green: #B1BF93;
-    --yellow: #D6D989;
-    --yellow-down:#fbfdba;
-    --beige: #f6f2e9;
-    --red: #A66565;
+    --beige: #FCF2EE;
+    --red: #855071;
     --text: #5B7343;
     --shadow-color: 79deg 26% 66%;
     --shadow-1-elevation-low: 0px 0.2px 0.2px hsl(var(--shadow-color) / 0.34), 0px 0.4px 0.5px -1.2px hsl(var(--shadow-color) / 0.34), 0px 0.9px 1px -2.5px hsl(var(--shadow-color) / 0.34);
@@ -303,11 +301,11 @@ TEXT HIGHLIGHT
 
 ::-moz-selection {
     /* Code for Firefox */
-    background: var(--yellow-down);
+    background: var(--light-green);
 }
 
 ::selection {
-    background: var(--yellow-down);
+    background: var(--light-green);
 }
 
 /***
